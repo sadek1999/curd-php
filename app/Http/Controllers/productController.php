@@ -28,4 +28,18 @@ class productController extends Controller
        $newProduct=Product::create($data);
        return redirect(route("product-index.php"));
     }
+    public function edit(Product $product){
+return view('products.edit',['product'=>$product]);
+    }
+    public function update(Product $product , Request $request){
+        $data =$request->validate([
+            "name"=>"required",
+            "price"=>"required",
+            "qty"=>"required",
+            "description"=>"required"
+           ]);
+         $product->update($data); 
+         return redirect(route("product-index.php"));
+        //  return redirect(route('product.index.php'))->with('success',"successfully update the product");
+    }
 }

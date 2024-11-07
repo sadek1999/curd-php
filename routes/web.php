@@ -20,3 +20,5 @@ Route::get('/', function () {
 Route::get('/product',[productController::class,'index'])->name('product-index.php');
 Route::get("/product/create",[productController::class ,'create'])->name('product.create');
 Route::post("/product",[productController::class ,'store'])->name('product.store');
+Route::get("/product/{product}/edit",[productController::class ,'edit'])->name('product.edit');
+Route::put("/product/{product}",[productController::class ,'update'])->name('product.update');
