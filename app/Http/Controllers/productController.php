@@ -42,4 +42,8 @@ return view('products.edit',['product'=>$product]);
          return redirect(route("product-index.php"));
         //  return redirect(route('product.index.php'))->with('success',"successfully update the product");
     }
+    public function delete(Product $product){
+        $product->delete();
+        return redirect(route("product-index.php")); 
+    }
 }
